@@ -1,5 +1,7 @@
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
-import React from "react";
+
+import AppButton from "../components/AppButton";
+import colors from "../constants/colors";
 
 const WelcomeScreen = () => {
   return (
@@ -11,11 +13,9 @@ const WelcomeScreen = () => {
         <Image style={styles.logo} source={require("../assets/u-logo.png")} />
         <Text>Ditch Your Old Crap With This Snazzy New App!</Text>
       </View>
-      <View style={styles.loginButton}>
-        <Text style={styles.buttonText}>Log In</Text>
-      </View>
-      <View style={styles.registerButton}>
-        <Text style={styles.buttonText}>Register</Text>
+      <View style={styles.buttonsContainer}>
+        <AppButton title="Log In" color={colors.primary} />
+        <AppButton title="Register" color={colors.secondary} />
       </View>
     </ImageBackground>
   );
@@ -29,17 +29,15 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
   },
+  buttonsContainer: {
+    padding: 20,
+    width: "100%"
+  },
   buttonText: {
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
-  },
-  loginButton: {
-    width: "100%",
-    height: 70,
-    backgroundColor: "#fc5c65",
-    justifyContent: "center",
   },
   logo: {
     width: 100,
@@ -49,11 +47,5 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 70,
     alignItems: "center",
-  },
-  registerButton: {
-    width: "100%",
-    height: 70,
-    backgroundColor: "#4ecdc4",
-    justifyContent: "center",
   },
 });
