@@ -6,12 +6,15 @@ import colors from "../constants/colors";
 const WelcomeScreen = () => {
   return (
     <ImageBackground
+      // blurRadius={10}
       style={styles.background}
       source={require("../assets/background.jpg")}
     >
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require("../assets/u-logo.png")} />
-        <Text style={styles.tagline}>Ditch your old crap with this snazzy new app!</Text>
+        <Text style={styles.tagline}>
+          Ditch your old crap with this snazzy new app!
+        </Text>
       </View>
       <View style={styles.buttonsContainer}>
         <AppButton title="Log In" color={colors.primary} />
@@ -31,7 +34,7 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     padding: 20,
-    width: "100%"
+    width: "100%",
   },
   buttonText: {
     color: "white",
@@ -51,6 +54,6 @@ const styles = StyleSheet.create({
   tagline: {
     fontSize: 15,
     fontWeight: "600",
-    paddingVertical: 20
-  }
+    paddingVertical: 20,
+  },
 });
