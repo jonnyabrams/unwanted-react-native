@@ -11,7 +11,7 @@ const WelcomeScreen = () => {
     >
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require("../assets/u-logo.png")} />
-        <Text>Ditch Your Old Crap With This Snazzy New App!</Text>
+        <Text style={styles.tagline}>Ditch your old crap with this snazzy new app!</Text>
       </View>
       <View style={styles.buttonsContainer}>
         <AppButton title="Log In" color={colors.primary} />
@@ -48,4 +48,9 @@ const styles = StyleSheet.create({
     top: 70,
     alignItems: "center",
   },
+  tagline: {
+    fontSize: 15,
+    fontWeight: "600",
+    paddingVertical: 20
+  }
 });
