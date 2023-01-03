@@ -3,6 +3,7 @@ import {
   ImageSourcePropType,
   StyleSheet,
   Text,
+  TouchableHighlight,
   View,
 } from "react-native";
 
@@ -13,17 +14,20 @@ interface IProps {
   title: string;
   subtitle: string;
   image: ImageSourcePropType;
+  onPress: () => void;
 }
 
-const ListItem = ({ title, subtitle, image }: IProps) => {
+const ListItem = ({ title, subtitle, image, onPress }: IProps) => {
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={image} />
-      <View>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subtitle}>{subtitle}</AppText>
+    <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
+      <View style={styles.container}>
+        <Image style={styles.image} source={image} />
+        <View>
+          <AppText style={styles.title}>{title}</AppText>
+          <AppText style={styles.subtitle}>{subtitle}</AppText>
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 };
 
