@@ -1,14 +1,8 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Platform,
-  StatusBar,
-} from "react-native";
+import { StyleSheet } from "react-native";
 import { FlatList } from "react-native";
 
 import ListItem from "../components/ListItem";
+import Screen from "../components/Screen";
 
 const messages = [
   {
@@ -39,7 +33,7 @@ const messages = [
 
 const MessagesScreen = () => {
   return (
-    <SafeAreaView style={styles.screen}>
+    <Screen>
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
@@ -51,15 +45,10 @@ const MessagesScreen = () => {
           />
         )}
       />
-    </SafeAreaView>
+    </Screen>
   );
 };
 
 export default MessagesScreen;
 
-const styles = StyleSheet.create({
-  // apply padding equivalent to status bar height if android as SafeAreaView only works on ios
-  screen: {
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-});
+const styles = StyleSheet.create({});
