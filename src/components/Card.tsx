@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
 
 import colors from "../constants/colors";
 import AppText from "./AppText";
@@ -6,13 +6,13 @@ import AppText from "./AppText";
 interface IProps {
   title: string;
   subtitle: string;
-  image: string;
+  image: ImageSourcePropType;
 }
 
 const Card = ({ title, subtitle, image }: IProps) => {
   return (
     <View style={styles.card}>
-      <Image style={styles.image} source={require(image)} />
+      <Image style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subtitle}>{subtitle}</AppText>

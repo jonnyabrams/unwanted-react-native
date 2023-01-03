@@ -2,7 +2,7 @@ import { Platform, StyleSheet, Text, View } from "react-native";
 
 interface IProps {
   children: string;
-  style: any;
+  style?: any;
 }
 
 const AppText = ({ children, style }: IProps) => {
