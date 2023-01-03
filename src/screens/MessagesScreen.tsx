@@ -44,6 +44,10 @@ const MessagesScreen = () => {
             subtitle={item.description}
             image={item.image}
             onPress={() => alert(item.id)}
+            renderRightActions={() => <View style={{
+              backgroundColor: 'red',
+              width: 70
+            }}></View>}
           />
         )}
         ItemSeparatorComponent={() => <ListItemSeparator />}

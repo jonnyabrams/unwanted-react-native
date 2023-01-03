@@ -6,6 +6,8 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
+import Swipeable from "react-native-gesture-handler/Swipeable";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import colors from "../constants/colors";
 import AppText from "./AppText";
@@ -15,19 +17,36 @@ interface IProps {
   subtitle: string;
   image: ImageSourcePropType;
   onPress: () => void;
+  renderRightActions:
+    | ((
+        progressAnimatedValue: any,
+        dragAnimatedValue: any,
+        swipeable: Swipeable
+      ) => React.ReactNode)
+    | undefined;
 }
 
-const ListItem = ({ title, subtitle, image, onPress }: IProps) => {
+const ListItem = ({
+  title,
+  subtitle,
+  image,
+  onPress,
+  renderRightActions,
+}: IProps) => {
   return (
-    <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
-      <View style={styles.container}>
-        <Image style={styles.image} source={image} />
-        <View>
-          <AppText style={styles.title}>{title}</AppText>
-          <AppText style={styles.subtitle}>{subtitle}</AppText>
-        </View>
-      </View>
-    </TouchableHighlight>
+    <GestureHandlerRootView>
+      <Swipeable renderRightActions={renderRightActions}>
+        <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
+          <View style={styles.container}>
+            <Image style={styles.image} source={image} />
+            <View>
+              <AppText style={styles.title}>{title}</AppText>
+              <AppText style={styles.subtitle}>{subtitle}</AppText>
+            </View>
+          </View>
+        </TouchableHighlight>
+      </Swipeable>
+    </GestureHandlerRootView>
   );
 };
 
