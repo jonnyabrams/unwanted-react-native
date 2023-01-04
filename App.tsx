@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Icon from './src/components/Icon';
 
+import Icon from './src/components/Icon';
+import ListItem from './src/components/ListItem';
 import Screen from './src/components/Screen';
 import ListingDetailsScreen from './src/screens/ListingDetailsScreen';
 import MessagesScreen from './src/screens/MessagesScreen';
@@ -10,9 +11,7 @@ import WelcomeScreen from './src/screens/WelcomeScreen';
 const App = () => {
   return (
     <Screen>
-      <Icon
-        name="email"
-      />
+      <ListItem title="Title" subtitle="Subtitle" />
     </Screen>
   );
 }

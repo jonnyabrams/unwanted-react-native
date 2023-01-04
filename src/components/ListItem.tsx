@@ -15,7 +15,7 @@ import AppText from "./AppText";
 interface IProps {
   title: string;
   subtitle: string;
-  image: ImageSourcePropType;
+  image?: ImageSourcePropType;
   onPress: () => void;
   renderRightActions:
     | ((
@@ -38,7 +38,7 @@ const ListItem = ({
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
           <View style={styles.container}>
-            <Image style={styles.image} source={image} />
+           {image && <Image style={styles.image} source={image} />}
             <View>
               <AppText style={styles.title}>{title}</AppText>
               <AppText style={styles.subtitle}>{subtitle}</AppText>
