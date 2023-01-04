@@ -11,7 +11,7 @@ import WelcomeScreen from './src/screens/WelcomeScreen';
 const App = () => {
   return (
     <Screen>
-      <ListItem title="Title" subtitle="Subtitle" />
+      <ListItem title="Title" ImageComponent={<Icon name="email" />} />
     </Screen>
   );
 }
