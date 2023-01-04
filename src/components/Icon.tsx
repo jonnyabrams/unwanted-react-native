@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 interface IProps {
-  name: React.ComponentProps<typeof MaterialCommunityIcons>['name'];
+  name: React.ComponentProps<typeof MaterialCommunityIcons>['name'] | string;
   size?: number;
   backgroundColor?: string;
   iconColor?: string;

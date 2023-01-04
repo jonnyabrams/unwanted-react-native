@@ -3,10 +3,15 @@ import Constants from "expo-constants";
 
 interface IProps {
   children: React.ReactNode;
+  style?: any;
 }
 
-const Screen = ({ children }: IProps) => {
-  return <SafeAreaView style={styles.screen}>{children}</SafeAreaView>;
+const Screen = ({ children, style }: IProps) => {
+  return (
+    <SafeAreaView style={{ ...styles.screen, ...style }}>
+      {children}
+    </SafeAreaView>
+  );
 };
 
 export default Screen;
@@ -14,6 +19,6 @@ export default Screen;
 const styles = StyleSheet.create({
   screen: {
     paddingTop: Constants.statusBarHeight,
-    flex: 1
+    flex: 1,
   },
 });
