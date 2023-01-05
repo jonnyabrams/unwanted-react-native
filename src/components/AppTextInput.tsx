@@ -11,27 +11,10 @@ import defaultStyles from "../constants/styles";
 
 interface IProps {
   icon?: string;
-  placeholder?: string;
-  autoCorrect?: boolean;
-  autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined;
-  keyboardType?: KeyboardTypeOptions | undefined;
-  textContentType?: TextContentTypeType;
-  secureTextEntry?: boolean;
-  onChangeText?: (text: string) => void;
-  onBlur?: () => void;
+  [x: string]: any;
 }
 
-const AppTextInput = ({
-  icon,
-  placeholder,
-  autoCorrect = false,
-  autoCapitalize = "none",
-  keyboardType = "default",
-  textContentType = "none",
-  secureTextEntry = false,
-  onChangeText,
-  onBlur
-}: IProps) => {
+const AppTextInput = ({ icon, ...otherProps }: IProps) => {
   return (
     <View style={styles.container}>
       {icon && (
@@ -43,15 +26,9 @@ const AppTextInput = ({
         />
       )}
       <TextInput
+        placeholderTextColor={defaultStyles.colors.medium}
         style={defaultStyles.text}
-        placeholder={placeholder}
-        keyboardType={keyboardType}
-        autoCapitalize={autoCapitalize}
-        autoCorrect={autoCorrect}
-        textContentType={textContentType}
-        secureTextEntry={secureTextEntry}
-        onChangeText={onChangeText}
-        onBlur={onBlur}
+        {...otherProps}
       />
     </View>
   );
