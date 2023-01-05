@@ -21,14 +21,12 @@ const RegisterScreen = () => {
         validationSchema={validationSchema}
       >
         <AppFormField
-          autoCorrect={false}
+          autoCapitalize="words"
           icon="account"
           name="name"
           placeholder="Name"
         />
         <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
           icon="email"
           keyboardType="email-address"
           name="email"
@@ -36,8 +34,6 @@ const RegisterScreen = () => {
           textContentType="emailAddress"
         />
         <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
           icon="lock"
           name="password"
           placeholder="Password"
