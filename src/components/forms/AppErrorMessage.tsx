@@ -1,9 +1,10 @@
+import { FormikErrors } from "formik";
 import { StyleSheet, Text, View } from "react-native";
 
 import AppText from "../AppText";
 
 interface IProps {
-  error: string | undefined;
+  error: FormikErrors<string> | undefined;
   visible: boolean | undefined;
 }
 

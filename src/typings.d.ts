@@ -10,6 +10,11 @@ type CategoryType = {
   value: number;
 };
 
+type InitialFormValuesType = {
+  email?: string;
+  password?: string;
+}
+
 type TextContentTypeType =
   | "none"
   | "URL"
