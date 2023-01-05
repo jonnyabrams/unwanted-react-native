@@ -4,3 +4,8 @@ type MessageType = {
   description: string;
   image: string;
 };
+
+type CategoryType = {
+  label: string;
+  value: number;
+}

@@ -3,7 +3,7 @@ import { Text } from "react-native";
 import defaultStyles from '../constants/styles'
 
 interface IProps {
-  children: string;
+  children: string | undefined;
   style?: any;
 }
 
