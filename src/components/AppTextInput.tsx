@@ -16,6 +16,8 @@ interface IProps {
   autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined;
   keyboardType?: KeyboardTypeOptions | undefined;
   textContentType?: TextContentTypeType;
+  secureTextEntry?: boolean;
+  onChangeText?: (text: string) => void;
 }
 
 const AppTextInput = ({
@@ -25,6 +27,8 @@ const AppTextInput = ({
   autoCapitalize = "none",
   keyboardType = "default",
   textContentType = "none",
+  secureTextEntry = false,
+  onChangeText
 }: IProps) => {
   return (
     <View style={styles.container}>
@@ -43,6 +47,8 @@ const AppTextInput = ({
         autoCapitalize={autoCapitalize}
         autoCorrect={autoCorrect}
         textContentType={textContentType}
+        secureTextEntry={secureTextEntry}
+        onChangeText={onChangeText}
       />
     </View>
   );

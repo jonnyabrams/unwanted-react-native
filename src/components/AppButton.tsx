@@ -4,12 +4,13 @@ import colors from "../constants/colors";
 
 interface IProps {
   title: string;
-  color: string;
+  color?: string;
+  onPress: () => void;
 }
 
-const AppButton = ({ title, color = "primary" }: IProps) => {
+const AppButton = ({ title, color = colors.primary, onPress }: IProps) => {
   return (
-    <TouchableOpacity style={{ ...styles.button, backgroundColor: color }}>
+    <TouchableOpacity style={{ ...styles.button, backgroundColor: color }} onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );

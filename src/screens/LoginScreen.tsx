@@ -1,8 +1,14 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { Image, StyleSheet } from "react-native";
+
+import AppButton from "../components/AppButton";
 import AppTextInput from "../components/AppTextInput";
 import Screen from "../components/Screen";
 
 const LoginScreen = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <Screen>
       <Image style={styles.logo} source={require("../assets/u-logo.png")} />
@@ -10,14 +16,17 @@ const LoginScreen = () => {
         icon="email"
         placeholder="Email"
         keyboardType="email-address"
+        onChangeText={(text) => setEmail(text)}
         textContentType="emailAddress"
       />
       <AppTextInput
-        icon="email"
-        placeholder="Email"
-        keyboardType="email-address"
-        textContentType="emailAddress"
+        icon="lock"
+        placeholder="Password"
+        textContentType="password"
+        onChangeText={(text) => setPassword(text)}
+        secureTextEntry
       />
+      <AppButton title="Log In" onPress={() => console.log(email, password)} />
     </Screen>
   );
 };
