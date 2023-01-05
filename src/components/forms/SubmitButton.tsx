@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { useFormikContext } from "formik";
 
-import AppButton from "./AppButton";
+import AppButton from "../AppButton";
 
 interface IProps {
   title: string;
@@ -9,7 +9,7 @@ interface IProps {
 
 const SubmitButton = ({ title }: IProps) => {
   const { handleSubmit } = useFormikContext();
-  
+
   return <AppButton title={title} onPress={handleSubmit} />;
 };
 
