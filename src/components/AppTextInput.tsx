@@ -1,4 +1,10 @@
-import { StyleSheet, TextInput, View } from "react-native";
+import {
+  KeyboardTypeOptions,
+  StyleSheet,
+  TextInput,
+  TextInputProps,
+  View,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyles from "../constants/styles";
@@ -6,9 +12,20 @@ import defaultStyles from "../constants/styles";
 interface IProps {
   icon?: string;
   placeholder?: string;
+  autoCorrect?: boolean;
+  autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined;
+  keyboardType?: KeyboardTypeOptions | undefined;
+  textContentType?: TextContentTypeType;
 }
 
-const AppTextInput = ({ icon, placeholder }: IProps) => {
+const AppTextInput = ({
+  icon,
+  placeholder,
+  autoCorrect = false,
+  autoCapitalize = "none",
+  keyboardType = "default",
+  textContentType = "none",
+}: IProps) => {
   return (
     <View style={styles.container}>
       {icon && (
@@ -19,7 +36,14 @@ const AppTextInput = ({ icon, placeholder }: IProps) => {
           style={styles.icon}
         />
       )}
-      <TextInput style={defaultStyles.text} placeholder={placeholder} />
+      <TextInput
+        style={defaultStyles.text}
+        placeholder={placeholder}
+        keyboardType={keyboardType}
+        autoCapitalize={autoCapitalize}
+        autoCorrect={autoCorrect}
+        textContentType={textContentType}
+      />
     </View>
   );
 };
