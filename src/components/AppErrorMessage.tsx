@@ -7,13 +7,13 @@ interface IProps {
   visible: boolean | undefined;
 }
 
-const ErrorMessage = ({ error, visible }: IProps) => {
+const AppErrorMessage = ({ error, visible }: IProps) => {
   if (!visible || !error) return null;
 
   return <AppText style={styles.error}>{error}</AppText>;
 };
 
-export default ErrorMessage;
+export default AppErrorMessage;
 
 const styles = StyleSheet.create({
   error: {
