@@ -10,6 +10,8 @@ npm-debug.*
 *.orig.*
 web-build/
 __snapshots__
+/coverage.data
+/coverage/
 
 # macOS
 .DS_Store
