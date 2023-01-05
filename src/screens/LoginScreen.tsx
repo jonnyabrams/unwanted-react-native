@@ -1,32 +1,39 @@
-import { useState } from "react";
 import { Image, StyleSheet } from "react-native";
+import { Formik } from "formik";
 
 import AppButton from "../components/AppButton";
 import AppTextInput from "../components/AppTextInput";
 import Screen from "../components/Screen";
 
 const LoginScreen = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   return (
     <Screen>
       <Image style={styles.logo} source={require("../assets/u-logo.png")} />
-      <AppTextInput
-        icon="email"
-        placeholder="Email"
-        keyboardType="email-address"
-        onChangeText={(text) => setEmail(text)}
-        textContentType="emailAddress"
-      />
-      <AppTextInput
-        icon="lock"
-        placeholder="Password"
-        textContentType="password"
-        onChangeText={(text) => setPassword(text)}
-        secureTextEntry
-      />
-      <AppButton title="Log In" onPress={() => console.log(email, password)} />
+
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        onSubmit={(values) => console.log(values)}
+      >
+        {({ handleChange, handleSubmit }) => (
+          <>
+            <AppTextInput
+              icon="email"
+              placeholder="Email"
+              keyboardType="email-address"
+              onChangeText={handleChange("email")}
+              textContentType="emailAddress"
+            />
+            <AppTextInput
+              icon="lock"
+              placeholder="Password"
+              textContentType="password"
+              onChangeText={handleChange("password")}
+              secureTextEntry
+            />
+            <AppButton title="Log In" onPress={handleSubmit} />
+          </>
+        )}
+      </Formik>
     </Screen>
   );
 };
