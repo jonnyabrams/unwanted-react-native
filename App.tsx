@@ -11,12 +11,13 @@ import ListingDetailsScreen from "./src/screens/ListingDetailsScreen";
 import ListingsScreen from "./src/screens/ListingsScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import MessagesScreen from "./src/screens/MessagesScreen";
+import RegisterScreen from "./src/screens/RegisterScreen";
 import ViewImageScreen from "./src/screens/ViewImageScreen";
 import WelcomeScreen from "./src/screens/WelcomeScreen";
 
 const App = () => {
   return (
-    <LoginScreen />
+    <RegisterScreen />
   );
 };
 

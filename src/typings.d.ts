@@ -11,6 +11,7 @@ type CategoryType = {
 };
 
 type InitialFormValuesType = {
+  name?: string;
   email?: string;
   password?: string;
 }

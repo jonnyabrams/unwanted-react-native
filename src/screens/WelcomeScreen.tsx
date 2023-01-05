@@ -17,8 +17,8 @@ const WelcomeScreen = () => {
         </Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="Log In" color={colors.primary} />
-        <AppButton title="Register" color={colors.secondary} />
+        <AppButton title="Log In" color={colors.primary} onPress={() => {}} />
+        <AppButton title="Register" color={colors.secondary} onPress={() => {}} />
       </View>
     </ImageBackground>
   );
