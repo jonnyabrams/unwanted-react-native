@@ -2,6 +2,7 @@ import { Platform, StyleSheet, Text, TextInput, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../constants/colors";
+import defaultStyles from "../constants/styles";
 
 interface IProps {
   icon?: string;
@@ -11,8 +12,15 @@ interface IProps {
 const AppTextInput = ({ icon, placeholder }: IProps) => {
   return (
     <View style={styles.container}>
-      {icon && <MaterialCommunityIcons name={icon} size={20} color={colors.medium} style={styles.icon} />}
-      <TextInput style={styles.textInput} placeholder={placeholder} />
+      {icon && (
+        <MaterialCommunityIcons
+          name={icon}
+          size={20}
+          color={colors.medium}
+          style={styles.icon}
+        />
+      )}
+      <TextInput style={defaultStyles.text} placeholder={placeholder} />
     </View>
   );
 };
@@ -30,10 +38,5 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
-  },
-  textInput: {
-    color: colors.dark,
-    fontSize: 18,
-    fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
   },
 });
