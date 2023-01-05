@@ -4,10 +4,11 @@ import AppText from "./AppText";
 
 interface IProps {
   error: string | undefined;
+  visible: boolean | undefined;
 }
 
-const ErrorMessage = ({ error }: IProps) => {
-  if (!error) return null;
+const ErrorMessage = ({ error, visible }: IProps) => {
+  if (!visible || !error) return null;
 
   return <AppText style={styles.error}>{error}</AppText>;
 };

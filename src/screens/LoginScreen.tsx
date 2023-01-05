@@ -23,24 +23,26 @@ const LoginScreen = () => {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors }) => (
+        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
           <>
             <AppTextInput
               icon="email"
               placeholder="Email"
               keyboardType="email-address"
+              onBlur={() => setFieldTouched("email")}
               onChangeText={handleChange("email")}
               textContentType="emailAddress"
             />
-            <ErrorMessage error={errors.email} />
+            <ErrorMessage visible={touched.email} error={errors.email} />
             <AppTextInput
               icon="lock"
               placeholder="Password"
               textContentType="password"
+              onBlur={() => setFieldTouched("password")}
               onChangeText={handleChange("password")}
               secureTextEntry
             />
-            <ErrorMessage error={errors.password} />
+            <ErrorMessage visible={touched.password} error={errors.password} />
             <AppButton title="Log In" onPress={handleSubmit} />
           </>
         )}

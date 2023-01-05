@@ -18,6 +18,7 @@ interface IProps {
   textContentType?: TextContentTypeType;
   secureTextEntry?: boolean;
   onChangeText?: (text: string) => void;
+  onBlur?: () => void;
 }
 
 const AppTextInput = ({
@@ -28,7 +29,8 @@ const AppTextInput = ({
   keyboardType = "default",
   textContentType = "none",
   secureTextEntry = false,
-  onChangeText
+  onChangeText,
+  onBlur
 }: IProps) => {
   return (
     <View style={styles.container}>
@@ -49,6 +51,7 @@ const AppTextInput = ({
         textContentType={textContentType}
         secureTextEntry={secureTextEntry}
         onChangeText={onChangeText}
+        onBlur={onBlur}
       />
     </View>
   );
