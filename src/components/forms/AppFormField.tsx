@@ -15,7 +15,7 @@ interface IProps {
   secureTextEntry?: boolean;
 }
 
-const AppFormField = ({ name, ...otherProps }: IProps) => {
+const AppFormField = ({ name, autoCapitalize = "none", autoCorrect =  false, ...otherProps }: IProps) => {
   const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
 
   return (
@@ -23,6 +23,8 @@ const AppFormField = ({ name, ...otherProps }: IProps) => {
       <AppTextInput
         onBlur={() => setFieldTouched(name)}
         onChangeText={handleChange(name)}
+        autoCapitalize={autoCapitalize}
+        autoCorrect={autoCorrect}
         {...otherProps}
       />
       <AppErrorMessage
