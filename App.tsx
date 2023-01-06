@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Switch, Text, View } from "react-native";
-import AppPicker from "./src/components/AppPicker";
 
+import AppPicker from "./src/components/AppPicker";
 import AppTextInput from "./src/components/AppTextInput";
 import Icon from "./src/components/Icon";
 import ListItem from "./src/components/ListItem";

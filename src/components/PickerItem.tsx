@@ -1,24 +1,24 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import AppText from './AppText';
+import AppText from "./AppText";
 
 interface IProps {
-  label: string;
+  item: CategoryType;
   onPress: () => void;
 }
 
-const PickerItem = ({label, onPress}: IProps) => {
+const PickerItem = ({ item, onPress }: IProps) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <AppText style={styles.text}>{label}</AppText>
+      <AppText style={styles.text}>{item.label}</AppText>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default PickerItem
+export default PickerItem;
 
 const styles = StyleSheet.create({
   text: {
-    padding: 20
-  }
-})
+    padding: 20,
+  },
+});

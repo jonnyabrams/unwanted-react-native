@@ -17,6 +17,16 @@ import PickerItem from "./PickerItem";
 interface IProps {
   items: CategoryType[];
   icon?: string;
+  numberOfColumns?: number;
+  PickerItemComponent:
+    | (({
+        item,
+        onPress,
+      }: {
+        item: CategoryType;
+        onPress: () => void;
+      }) => JSX.Element)
+    | undefined;
   placeholder?: string;
   selectedItem?: CategoryType;
   onSelectItem: (item: CategoryType) => void;
@@ -26,6 +36,8 @@ interface IProps {
 const AppPicker = ({
   items,
   icon,
+  numberOfColumns = 1,
+  PickerItemComponent = PickerItem,
   placeholder,
   selectedItem,
   onSelectItem,
@@ -64,9 +76,10 @@ const AppPicker = ({
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
+            numColumns={numberOfColumns}
             renderItem={({ item }) => (
-              <PickerItem
-                label={item.label}
+              <PickerItemComponent
+                item={item}
                 onPress={() => {
                   setModalVisible(false);
                   onSelectItem(item);
