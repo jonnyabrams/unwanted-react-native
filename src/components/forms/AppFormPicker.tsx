@@ -6,13 +6,16 @@ import AppErrorMessage from "./AppErrorMessage";
 interface IProps {
   items: CategoryType[];
   name: string;
-  PickerItemComponent: ({
-    item,
-    onPress,
-  }: {
-    item: CategoryType;
-    onPress: () => void;
-  }) => JSX.Element;
+  numberOfColumns?: number;
+  PickerItemComponent?:
+    | (({
+        item,
+        onPress,
+      }: {
+        item: CategoryType;
+        onPress: () => void;
+      }) => JSX.Element)
+    | undefined;
   placeholder?: string;
   width?: string | number;
 }
@@ -20,6 +23,7 @@ interface IProps {
 const AppFormPicker = ({
   items,
   name,
+  numberOfColumns,
   PickerItemComponent,
   placeholder,
   width,
@@ -32,6 +36,7 @@ const AppFormPicker = ({
         items={items}
         onSelectItem={(item) => setFieldValue(name, item)}
         PickerItemComponent={PickerItemComponent}
+        numberOfColumns={numberOfColumns}
         placeholder={placeholder}
         // @ts-ignore
         selectedItem={values[name]}
