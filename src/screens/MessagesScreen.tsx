@@ -28,8 +28,8 @@ const initialMessages = [
   },
   {
     id: 4,
-    title: "T4",
-    description: "D4",
+    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur natus non rerum, quasi autem saepe perspiciatis corrupti eaque ipsam fugiat labore ad nostrum dignissimos veniam repellat aut. Aspernatur, eum dolorem.",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur natus non rerum, quasi autem saepe perspiciatis corrupti eaque ipsam fugiat labore ad nostrum dignissimos veniam repellat aut. Aspernatur, eum dolorem",
     image: require("../assets/me.jpeg"),
   },
 ];
