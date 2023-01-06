@@ -8,6 +8,7 @@ import ListItem from "./src/components/ListItem";
 import Screen from "./src/components/Screen";
 import AccountScreen from "./src/screens/AccountScreen";
 import ListingDetailsScreen from "./src/screens/ListingDetailsScreen";
+import ListingEditScreen from "./src/screens/ListingEditScreen";
 import ListingsScreen from "./src/screens/ListingsScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import MessagesScreen from "./src/screens/MessagesScreen";
@@ -17,7 +18,7 @@ import WelcomeScreen from "./src/screens/WelcomeScreen";
 
 const App = () => {
   return (
-    <RegisterScreen />
+    <ListingEditScreen />
   );
 };
 

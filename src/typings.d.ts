@@ -14,6 +14,10 @@ type InitialFormValuesType = {
   name?: string;
   email?: string;
   password?: string;
+  title?: string;
+  price?: string;
+  description?: "",
+  category?: CategoryType | null;
 }
 
 type TextContentTypeType =

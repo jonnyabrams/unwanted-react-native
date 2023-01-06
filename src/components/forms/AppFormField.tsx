@@ -13,6 +13,9 @@ interface IProps {
   placeholder?: string;
   textContentType?: string;
   secureTextEntry?: boolean;
+  maxLength?: number;
+  multiline?: boolean;
+  numberOfLines?: number;
 }
 
 const AppFormField = ({ name, autoCapitalize = "none", autoCorrect =  false, ...otherProps }: IProps) => {
