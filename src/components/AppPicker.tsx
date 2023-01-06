@@ -17,6 +17,13 @@ import PickerItem from "./PickerItem";
 interface IProps {
   items: CategoryType[];
   icon?: string;
+  PickerItemComponent: ({
+    item,
+    onPress,
+  }: {
+    item: CategoryType;
+    onPress: () => void;
+  }) => JSX.Element;
   placeholder?: string;
   selectedItem?: CategoryType;
   onSelectItem: (item: CategoryType) => void;
@@ -26,6 +33,7 @@ interface IProps {
 const AppPicker = ({
   items,
   icon,
+  PickerItemComponent = PickerItem,
   placeholder,
   selectedItem,
   onSelectItem,
@@ -65,8 +73,8 @@ const AppPicker = ({
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem
-                label={item.label}
+              <PickerItemComponent
+                item={item}
                 onPress={() => {
                   setModalVisible(false);
                   onSelectItem(item);

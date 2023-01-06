@@ -6,11 +6,24 @@ import AppErrorMessage from "./AppErrorMessage";
 interface IProps {
   items: CategoryType[];
   name: string;
+  PickerItemComponent: ({
+    item,
+    onPress,
+  }: {
+    item: CategoryType;
+    onPress: () => void;
+  }) => JSX.Element;
   placeholder?: string;
   width?: string | number;
 }
 
-const AppFormPicker = ({ items, name, placeholder, width }: IProps) => {
+const AppFormPicker = ({
+  items,
+  name,
+  PickerItemComponent,
+  placeholder,
+  width,
+}: IProps) => {
   const { errors, setFieldValue, touched, values } = useFormikContext();
 
   return (
@@ -18,6 +31,7 @@ const AppFormPicker = ({ items, name, placeholder, width }: IProps) => {
       <AppPicker
         items={items}
         onSelectItem={(item) => setFieldValue(name, item)}
+        PickerItemComponent={PickerItemComponent}
         placeholder={placeholder}
         // @ts-ignore
         selectedItem={values[name]}

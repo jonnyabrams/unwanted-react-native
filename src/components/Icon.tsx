@@ -1,8 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons"
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 interface IProps {
-  name: React.ComponentProps<typeof MaterialCommunityIcons>['name'] | string;
+  name:
+    | React.ComponentProps<typeof MaterialCommunityIcons>["name"]
+    | string
+    | undefined;
   size?: number;
   backgroundColor?: string;
   iconColor?: string;
@@ -24,7 +27,9 @@ const Icon = ({
         justifyContent: "center",
         alignItems: "center",
       }}
-    ><MaterialCommunityIcons name={name} color={iconColor} size={size * 0.5} /></View>
+    >
+      <MaterialCommunityIcons name={name} color={iconColor} size={size * 0.5} />
+    </View>
   );
 };
 

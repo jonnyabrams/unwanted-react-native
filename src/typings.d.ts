@@ -8,6 +8,8 @@ type MessageType = {
 type CategoryType = {
   label: string;
   value: number;
+  backgroundColor?: string;
+  icon?: string;
 };
 
 type InitialFormValuesType = {
