@@ -9,7 +9,7 @@ interface IProps {
 const Screen = ({ children, style }: IProps) => {
   return (
     <SafeAreaView style={{ ...styles.screen, ...style }}>
-      <View style={styles.content}>{children}</View>
+      <View style={{ ...styles.view, ...style }}>{children}</View>
     </SafeAreaView>
   );
 };
@@ -17,8 +17,9 @@ const Screen = ({ children, style }: IProps) => {
 export default Screen;
 
 const styles = StyleSheet.create({
-  content: {
-    padding: 20
+  view: {
+    padding: 20,
+    flex: 1,
   },
   screen: {
     paddingTop: Constants.statusBarHeight,
