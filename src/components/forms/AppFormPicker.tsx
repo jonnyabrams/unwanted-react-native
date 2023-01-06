@@ -7,9 +7,10 @@ interface IProps {
   items: CategoryType[];
   name: string;
   placeholder?: string;
+  width?: string | number;
 }
 
-const AppFormPicker = ({ items, name, placeholder }: IProps) => {
+const AppFormPicker = ({ items, name, placeholder, width }: IProps) => {
   const { errors, setFieldValue, touched, values } = useFormikContext();
 
   return (
@@ -20,6 +21,7 @@ const AppFormPicker = ({ items, name, placeholder }: IProps) => {
         placeholder={placeholder}
         // @ts-ignore
         selectedItem={values[name]}
+        width={width}
       />
       <AppErrorMessage
         // get name property of errors obj & tell TS it's a key of that obj to stop error

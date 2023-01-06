@@ -18,7 +18,7 @@ import WelcomeScreen from "./src/screens/WelcomeScreen";
 
 const App = () => {
   return (
-    <MessagesScreen />
+    <ListingEditScreen />
   );
 };
 

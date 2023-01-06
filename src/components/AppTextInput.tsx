@@ -11,12 +11,13 @@ import defaultStyles from "../constants/styles";
 
 interface IProps {
   icon?: string;
+  width?: string | number
   [x: string]: any;
-}
+} 
 
-const AppTextInput = ({ icon, ...otherProps }: IProps) => {
+const AppTextInput = ({ icon, width = "100%", ...otherProps }: IProps) => {
   return (
-    <View style={styles.container}>
+    <View style={{...styles.container, width: width}}>
       {icon && (
         <MaterialCommunityIcons
           name={icon}
@@ -41,7 +42,6 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
     padding: 15,
     marginVertical: 10,
   },

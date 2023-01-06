@@ -16,9 +16,10 @@ interface IProps {
   maxLength?: number;
   multiline?: boolean;
   numberOfLines?: number;
+  width?: string | number;
 }
 
-const AppFormField = ({ name, autoCapitalize = "none", autoCorrect =  false, ...otherProps }: IProps) => {
+const AppFormField = ({ name, width, autoCapitalize = "none", autoCorrect =  false, ...otherProps }: IProps) => {
   const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
 
   return (
@@ -28,6 +29,7 @@ const AppFormField = ({ name, autoCapitalize = "none", autoCorrect =  false, ...
         onChangeText={handleChange(name)}
         autoCapitalize={autoCapitalize}
         autoCorrect={autoCorrect}
+        width={width}
         {...otherProps}
       />
       <AppErrorMessage
