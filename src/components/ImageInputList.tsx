@@ -17,23 +17,25 @@ const ImageInputList = ({
   const scrollView = useRef<ScrollView | null>(null);
 
   return (
-    <ScrollView
-      ref={scrollView}
-      horizontal
-      onContentSizeChange={() => scrollView?.current?.scrollToEnd()}
-    >
-      <View style={styles.container}>
-        {imageUris.map((uri) => (
-          <View key={uri} style={styles.image}>
-            <ImageInput
-              imageUri={uri}
-              onChangeImage={() => onRemoveImage(uri)}
-            />
-          </View>
-        ))}
-        <ImageInput onChangeImage={(uri) => onAddImage!(uri!)} />
-      </View>
-    </ScrollView>
+    <View>
+      <ScrollView
+        ref={scrollView}
+        horizontal
+        onContentSizeChange={() => scrollView?.current?.scrollToEnd()}
+      >
+        <View style={styles.container}>
+          {imageUris.map((uri) => (
+            <View key={uri} style={styles.image}>
+              <ImageInput
+                imageUri={uri}
+                onChangeImage={() => onRemoveImage(uri)}
+              />
+            </View>
+          ))}
+          <ImageInput onChangeImage={(uri) => onAddImage!(uri!)} />
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
