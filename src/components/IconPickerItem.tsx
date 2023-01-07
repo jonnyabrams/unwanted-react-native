@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import AppText from "./Text";
 
 import Icon from "./Icon";
@@ -10,10 +10,10 @@ interface IProps {
 
 const IconPickerItem = ({ item, onPress }: IProps) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <Icon backgroundColor={item.backgroundColor} name={item.icon} size={80} />
       <AppText style={styles.label}>{item.label}</AppText>
-    </View>
+    </TouchableOpacity>
   );
 };
 
