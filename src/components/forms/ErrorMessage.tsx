@@ -1,11 +1,11 @@
-import { FormikErrors } from "formik";
+import { FormikErrors, FormikTouched } from "formik";
 import { StyleSheet } from "react-native";
 
 import AppText from "../Text";
 
 interface IProps {
-  error: FormikErrors<string> | undefined;
-  visible: boolean | undefined;
+  error: string | FormikErrors<any> | string[] | FormikErrors<any>[] | undefined;
+  visible: boolean | FormikTouched<any> | FormikTouched<any>[] | undefined;
 }
 
 const ErrorMessage = ({ error, visible }: IProps) => {
