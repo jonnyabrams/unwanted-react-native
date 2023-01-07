@@ -18,9 +18,10 @@ type InitialFormValuesType = {
   password?: string;
   title?: string;
   price?: string;
-  description?: "",
+  description?: "";
   category?: CategoryType | null;
-}
+  images: string[];
+};
 
 type TextContentTypeType =
   | "none"

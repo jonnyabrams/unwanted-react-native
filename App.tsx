@@ -21,17 +21,7 @@ import ImageInput from "./src/components/ImageInput";
 import ImageInputList from "./src/components/ImageInputList";
 
 const App = () => {
-  const [imageUris, setImageUris] = useState<string[]>([]);
-
-  return (
-    <Screen>
-      <ImageInputList
-        onAddImage={handleAdd}
-        onRemoveImage={handleRemove}
-        imageUris={imageUris}
-      />
-    </Screen>
-  );
+  return <ListingEditScreen />;
 };
 
 export default App;

@@ -1,12 +1,8 @@
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
-import {
-  Form,
-  FormField,
-  FormPicker,
-  SubmitButton,
-} from "../components/forms";
+import { Form, FormField, FormPicker, SubmitButton } from "../components/forms";
+import FormImagePicker from "../components/forms/FormImagePicker";
 import IconPickerItem from "../components/IconPickerItem";
 import Screen from "../components/Screen";
 
@@ -15,6 +11,7 @@ const validationSchema = Yup.object().shape({
   price: Yup.number().required().min(1).max(10000).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
+  images: Yup.array().min(1, "Please select at least one image"),
 });
 
 const categories = [
@@ -23,7 +20,12 @@ const categories = [
   { label: "Cameras", value: 4, backgroundColor: "blue", icon: "lock" },
   { label: "Cameras", value: 5, backgroundColor: "blue", icon: "lock" },
   { label: "Cameras", value: 6, backgroundColor: "blue", icon: "lock" },
-  { label: "Cameras and Cameras", value: 7, backgroundColor: "blue", icon: "lock" },
+  {
+    label: "Cameras and Cameras",
+    value: 7,
+    backgroundColor: "blue",
+    icon: "lock",
+  },
   { label: "Cameras", value: 8, backgroundColor: "blue", icon: "lock" },
   { label: "Cameras", value: 9, backgroundColor: "blue", icon: "lock" },
 ];
@@ -37,10 +39,12 @@ const ListingEditScreen = () => {
           price: "",
           description: "",
           category: null,
+          images: []
         }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <FormImagePicker name="images" />
         <FormField name="title" maxLength={255} placeholder="Title" />
         <FormField
           name="price"
