@@ -19,7 +19,7 @@ interface IProps {
   width?: string | number;
 }
 
-const AppFormField = ({
+const FormField = ({
   name,
   width,
   autoCapitalize = "none",
@@ -47,6 +47,6 @@ const AppFormField = ({
   );
 };
 
-export default AppFormField;
+export default FormField;
 
 const styles = StyleSheet.create({});

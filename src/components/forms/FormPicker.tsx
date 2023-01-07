@@ -21,7 +21,7 @@ interface IProps {
   width?: string | number;
 }
 
-const AppFormPicker = ({
+const FormPicker = ({
   items,
   name,
   numberOfColumns,
@@ -52,6 +52,6 @@ const AppFormPicker = ({
   );
 };
 
-export default AppFormPicker;
+export default FormPicker;
 
 const styles = StyleSheet.create({});

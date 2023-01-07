@@ -52,8 +52,8 @@ const ListingEditScreen = () => {
         <FormPicker
           items={categories}
           name="category"
-          numberOfColumns={3}
-          PickerItemComponent={IconPickerItem}
+          // numberOfColumns={3}
+          // PickerItemComponent={IconPickerItem}
           placeholder="Category"
           width="50%"
         />
