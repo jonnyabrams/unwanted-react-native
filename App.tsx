@@ -18,41 +18,26 @@ import ViewImageScreen from "./src/screens/ViewImageScreen";
 import WelcomeScreen from "./src/screens/WelcomeScreen";
 import Button from "./src/components/Button";
 import ImageInput from "./src/components/ImageInput";
+import ImageInputList from "./src/components/ImageInputList";
 
 const App = () => {
-  const [image, setImage] = useState<any>(null);
-  const [status, requestPermission] = ImagePicker.useCameraPermissions();
+  const [imageUris, setImageUris] = useState<string[]>([]);
 
-  useEffect(() => {
-    requestPermission();
-  }, []);
+  const handleAdd = (uri: string) => {
+    setImageUris([...imageUris, uri]);
+  };
 
-  const pickImage = async () => {
-    try {
-      if (status?.granted) {
-        let result = await ImagePicker.launchImageLibraryAsync({
-          mediaTypes: ImagePicker.MediaTypeOptions.All,
-          allowsEditing: true,
-          aspect: [4, 3],
-          quality: 1,
-        });
-
-        console.log(result);
-
-        if (!result.canceled) {
-          setImage(result.assets[0].uri);
-        }
-      } else {
-        alert("You need to enable permissions to access library");
-      }
-    } catch (error) {
-      console.log("Error reading an image");
-    }
+  const handleRemove = (uri: string) => {
+    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
   };
 
   return (
     <Screen>
-      <ImageInput onChangeImage={(uri) => setImage(uri)} imageUri={image} />
+      <ImageInputList
+        onAddImage={handleAdd}
+        onRemoveImage={handleRemove}
+        imageUris={imageUris}
+      />
     </Screen>
   );
 };
