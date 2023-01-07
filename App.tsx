@@ -36,9 +36,9 @@ const App = () => {
           aspect: [4, 3],
           quality: 1,
         });
-  
+
         console.log(result);
-  
+
         if (!result.canceled) {
           setImage(result.assets[0].uri);
         }
@@ -46,16 +46,13 @@ const App = () => {
         alert("You need to enable permissions to access library");
       }
     } catch (error) {
-      console.log("Error reading an image")
+      console.log("Error reading an image");
     }
   };
 
   return (
     <Screen>
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Button title="Pick an image from camera roll" onPress={pickImage} />
-        <ImageInput imageUri={image} />
-      </View>
+      <ImageInput onChangeImage={(uri) => setImage(uri)} imageUri={image} />
     </Screen>
   );
 };
