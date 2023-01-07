@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../constants/colors";
@@ -10,7 +10,11 @@ const ViewImageScreen = () => {
         <MaterialCommunityIcons name="close" color="white" size={30} />
       </View>
       <View style={styles.deleteIcon}>
-      <MaterialCommunityIcons name="trash-can-outline" color="white" size={35} />
+        <MaterialCommunityIcons
+          name="trash-can-outline"
+          color="white"
+          size={35}
+        />
       </View>
       <Image
         resizeMode="contain"

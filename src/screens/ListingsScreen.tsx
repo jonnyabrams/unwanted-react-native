@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import Card from "../components/Card";
 
 import Screen from "../components/Screen";
@@ -42,6 +42,6 @@ export default ListingsScreen;
 const styles = StyleSheet.create({
   screen: {
     padding: 20,
-    backgroundColor: colors.light
-  }
+    backgroundColor: colors.light,
+  },
 });

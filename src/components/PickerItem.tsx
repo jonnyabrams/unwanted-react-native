@@ -1,6 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
-import AppText from "./AppText";
+import AppText from "./Text";
 
 interface IProps {
   item: CategoryType;

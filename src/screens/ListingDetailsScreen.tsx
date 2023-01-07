@@ -1,5 +1,5 @@
-import { Image, StyleSheet, Text, View } from "react-native";
-import AppText from "../components/AppText";
+import { Image, StyleSheet, View } from "react-native";
+import AppText from "../components/Text";
 import ListItem from "../components/ListItem";
 
 import colors from "../constants/colors";
@@ -44,6 +44,6 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   userContainer: {
-    marginVertical: 40
-  }
+    marginVertical: 40,
+  },
 });

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { StyleSheet, Switch, Text, View } from "react-native";
 
-import AppPicker from "./src/components/AppPicker";
-import AppTextInput from "./src/components/AppTextInput";
+import AppPicker from "./src/components/Picker";
+import AppTextInput from "./src/components/TextInput";
 import Icon from "./src/components/Icon";
 import ListItem from "./src/components/ListItem";
 import Screen from "./src/components/Screen";
@@ -17,9 +17,7 @@ import ViewImageScreen from "./src/screens/ViewImageScreen";
 import WelcomeScreen from "./src/screens/WelcomeScreen";
 
 const App = () => {
-  return (
-    <ListingEditScreen />
-  );
+  return <ListingEditScreen />;
 };
 
 export default App;
