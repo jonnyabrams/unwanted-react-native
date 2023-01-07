@@ -9,7 +9,7 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyles from "../constants/styles";
-import AppText from "./AppText";
+import AppText from "./Text";
 import { useState } from "react";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
@@ -33,7 +33,7 @@ interface IProps {
   width?: string | number;
 }
 
-const AppPicker = ({
+const Picker = ({
   items,
   icon,
   numberOfColumns = 1,
@@ -93,7 +93,7 @@ const AppPicker = ({
   );
 };
 
-export default AppPicker;
+export default Picker;
 
 const styles = StyleSheet.create({
   container: {

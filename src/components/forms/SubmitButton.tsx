@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { useFormikContext } from "formik";
 
-import AppButton from "../AppButton";
+import AppButton from "../Button";
 
 interface IProps {
   title: string;

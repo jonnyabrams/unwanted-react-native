@@ -1,7 +1,8 @@
 import { FormikErrors, useFormikContext } from "formik";
 import { StyleSheet } from "react-native";
-import AppPicker from "../AppPicker";
-import AppErrorMessage from "./AppErrorMessage";
+
+import Picker from "../Picker";
+import ErrorMessage from "./ErrorMessage";
 
 interface IProps {
   items: CategoryType[];
@@ -32,7 +33,7 @@ const AppFormPicker = ({
 
   return (
     <>
-      <AppPicker
+      <Picker
         items={items}
         onSelectItem={(item) => setFieldValue(name, item)}
         PickerItemComponent={PickerItemComponent}
@@ -42,7 +43,7 @@ const AppFormPicker = ({
         selectedItem={values[name]}
         width={width}
       />
-      <AppErrorMessage
+      <ErrorMessage
         // get name property of errors obj & tell TS it's a key of that obj to stop error
         error={errors[name as keyof FormikErrors<unknown>]}
         visible={touched[name as keyof FormikErrors<unknown>]}

@@ -10,7 +10,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../constants/colors";
-import AppText from "./AppText";
+import AppText from "./Text";
 
 interface IProps {
   title: string;
@@ -43,9 +43,13 @@ const ListItem = ({
             {IconComponent}
             {image && <Image style={styles.image} source={image} />}
             <View style={styles.detailsContainer}>
-              <AppText style={styles.title} numberOfLines={1}>{title}</AppText>
+              <AppText style={styles.title} numberOfLines={1}>
+                {title}
+              </AppText>
               {subtitle && (
-                <AppText style={styles.subtitle} numberOfLines={2}>{subtitle}</AppText>
+                <AppText style={styles.subtitle} numberOfLines={2}>
+                  {subtitle}
+                </AppText>
               )}
             </View>
             <MaterialCommunityIcons

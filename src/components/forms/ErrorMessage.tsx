@@ -1,20 +1,20 @@
 import { FormikErrors } from "formik";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 
-import AppText from "../AppText";
+import AppText from "../Text";
 
 interface IProps {
   error: FormikErrors<string> | undefined;
   visible: boolean | undefined;
 }
 
-const AppErrorMessage = ({ error, visible }: IProps) => {
+const ErrorMessage = ({ error, visible }: IProps) => {
   if (!visible || !error) return null;
 
   return <AppText style={styles.error}>{error}</AppText>;
 };
 
-export default AppErrorMessage;
+export default ErrorMessage;
 
 const styles = StyleSheet.create({
   error: {

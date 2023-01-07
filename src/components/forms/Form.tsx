@@ -7,7 +7,7 @@ interface IProps {
   children: React.ReactNode;
 }
 
-const AppForm = ({
+const Form = ({
   initialValues,
   onSubmit,
   validationSchema,
@@ -24,4 +24,4 @@ const AppForm = ({
   );
 };
 
-export default AppForm;
+export default Form;

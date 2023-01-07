@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { FlatList } from "react-native";
 import { useState } from "react";
 
@@ -28,8 +28,10 @@ const initialMessages = [
   },
   {
     id: 4,
-    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur natus non rerum, quasi autem saepe perspiciatis corrupti eaque ipsam fugiat labore ad nostrum dignissimos veniam repellat aut. Aspernatur, eum dolorem.",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur natus non rerum, quasi autem saepe perspiciatis corrupti eaque ipsam fugiat labore ad nostrum dignissimos veniam repellat aut. Aspernatur, eum dolorem",
+    title:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur natus non rerum, quasi autem saepe perspiciatis corrupti eaque ipsam fugiat labore ad nostrum dignissimos veniam repellat aut. Aspernatur, eum dolorem.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur natus non rerum, quasi autem saepe perspiciatis corrupti eaque ipsam fugiat labore ad nostrum dignissimos veniam repellat aut. Aspernatur, eum dolorem",
     image: require("../assets/me.jpeg"),
   },
 ];

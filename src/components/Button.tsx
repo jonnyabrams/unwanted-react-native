@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import colors from "../constants/colors";
 
@@ -8,15 +8,18 @@ interface IProps {
   onPress: () => void;
 }
 
-const AppButton = ({ title, color = colors.primary, onPress }: IProps) => {
+const Button = ({ title, color = colors.primary, onPress }: IProps) => {
   return (
-    <TouchableOpacity style={{ ...styles.button, backgroundColor: color }} onPress={onPress}>
+    <TouchableOpacity
+      style={{ ...styles.button, backgroundColor: color }}
+      onPress={onPress}
+    >
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
 };
 
-export default AppButton;
+export default Button;
 
 const styles = StyleSheet.create({
   button: {
@@ -25,7 +28,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 15,
     width: "100%",
-    marginVertical: 10
+    marginVertical: 10,
   },
   text: {
     color: colors.white,

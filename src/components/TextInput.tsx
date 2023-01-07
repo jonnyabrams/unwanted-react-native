@@ -1,8 +1,6 @@
 import {
-  KeyboardTypeOptions,
   StyleSheet,
   TextInput,
-  TextInputProps,
   View,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";

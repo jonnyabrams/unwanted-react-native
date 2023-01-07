@@ -1,7 +1,12 @@
-import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  View,
+} from "react-native";
 
 import colors from "../constants/colors";
-import AppText from "./AppText";
+import AppText from "./Text";
 
 interface IProps {
   title: string;
