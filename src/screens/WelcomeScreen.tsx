@@ -5,7 +5,7 @@ import AppButton from "../components/Button";
 import colors from "../constants/colors";
 
 interface IProps {
-  navigation: NavigationProp<ParamListBase>;
+  navigation: any;
 }
 
 const WelcomeScreen = ({ navigation }: IProps) => {
