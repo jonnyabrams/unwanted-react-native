@@ -23,6 +23,11 @@ type InitialFormValuesType = {
   images: string[];
 };
 
+type LocationType = {
+  longitude: number;
+  latitude: number;
+};
+
 type TextContentTypeType =
   | "none"
   | "URL"
