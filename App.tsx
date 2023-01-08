@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 
 import AppPicker from "./src/components/Picker";
 import AppTextInput from "./src/components/TextInput";
@@ -21,11 +21,12 @@ import ImageInput from "./src/components/ImageInput";
 import ImageInputList from "./src/components/ImageInputList";
 import AuthNavigator from "./src/navigation/AuthNavigator";
 import navigationTheme from "./src/navigation/navigationTheme";
+import AppNavigator from "./src/navigation/AppNavigator";
 
 const App = () => {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <AuthNavigator />
+      <AppNavigator />
     </NavigationContainer>
   );
 };
