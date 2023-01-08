@@ -2,6 +2,7 @@ import {
   Image,
   ImageSourcePropType,
   StyleSheet,
+  TouchableWithoutFeedback,
   View,
 } from "react-native";
 
@@ -12,17 +13,20 @@ interface IProps {
   title: string;
   subtitle: string;
   image: ImageSourcePropType;
+  onPress?: () => void;
 }
 
-const Card = ({ title, subtitle, image }: IProps) => {
+const Card = ({ title, subtitle, image, onPress }: IProps) => {
   return (
-    <View style={styles.card}>
-      <Image style={styles.image} source={image} />
-      <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subtitle}>{subtitle}</AppText>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.card}>
+        <Image style={styles.image} source={image} />
+        <View style={styles.detailsContainer}>
+          <AppText style={styles.title}>{title}</AppText>
+          <AppText style={styles.subtitle}>{subtitle}</AppText>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 
