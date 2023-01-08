@@ -1,3 +1,4 @@
+import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import { FlatList, StyleSheet, View } from "react-native";
 import Icon from "../components/Icon";
 
@@ -5,6 +6,10 @@ import ListItem from "../components/ListItem";
 import ListItemSeparator from "../components/ListItemSeparator";
 import Screen from "../components/Screen";
 import colors from "../constants/colors";
+
+interface IProps {
+  navigation: any;
+}
 
 const menuItems = [
   {
@@ -20,10 +25,11 @@ const menuItems = [
       name: "email",
       backgroundColor: colors.secondary,
     },
+    targetScreen: "Messages"
   },
 ];
 
-const AccountScreen = () => {
+const AccountScreen = ({navigation}: IProps) => {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -47,6 +53,7 @@ const AccountScreen = () => {
                   backgroundColor={item.icon.backgroundColor}
                 />
               }
+              onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
         />
