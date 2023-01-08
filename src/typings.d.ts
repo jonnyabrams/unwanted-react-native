@@ -20,7 +20,7 @@ type InitialFormValuesType = {
   price?: string;
   description?: "";
   category?: CategoryType | null;
-  images: string[];
+  images?: string[];
 };
 
 type LocationType = {

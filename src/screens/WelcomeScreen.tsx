@@ -1,12 +1,17 @@
+import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 
 import AppButton from "../components/Button";
 import colors from "../constants/colors";
 
-const WelcomeScreen = () => {
+interface IProps {
+  navigation: NavigationProp<ParamListBase>;
+}
+
+const WelcomeScreen = ({ navigation }: IProps) => {
   return (
     <ImageBackground
-      // blurRadius={10}
+      blurRadius={10}
       style={styles.background}
       source={require("../assets/background.jpg")}
     >
@@ -17,11 +22,15 @@ const WelcomeScreen = () => {
         </Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="Log In" color={colors.primary} onPress={() => {}} />
+        <AppButton
+          title="Log In"
+          color={colors.primary}
+          onPress={() => navigation.navigate("Login")}
+        />
         <AppButton
           title="Register"
           color={colors.secondary}
-          onPress={() => {}}
+          onPress={() => navigation.navigate("Register")}
         />
       </View>
     </ImageBackground>

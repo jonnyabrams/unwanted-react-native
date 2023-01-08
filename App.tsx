@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { Image, Switch, Text, View } from "react-native";
-import * as ImagePicker from "expo-image-picker";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import AppPicker from "./src/components/Picker";
 import AppTextInput from "./src/components/TextInput";
@@ -19,9 +19,14 @@ import WelcomeScreen from "./src/screens/WelcomeScreen";
 import Button from "./src/components/Button";
 import ImageInput from "./src/components/ImageInput";
 import ImageInputList from "./src/components/ImageInputList";
+import AuthNavigator from "./src/navigation/AuthNavigator";
 
 const App = () => {
-  return <ListingEditScreen />;
+  return (
+    <NavigationContainer>
+      <AuthNavigator />
+    </NavigationContainer>
+  );
 };
 
 export default App;
