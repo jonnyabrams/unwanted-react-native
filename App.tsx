@@ -20,10 +20,11 @@ import Button from "./src/components/Button";
 import ImageInput from "./src/components/ImageInput";
 import ImageInputList from "./src/components/ImageInputList";
 import AuthNavigator from "./src/navigation/AuthNavigator";
+import navigationTheme from "./src/navigation/navigationTheme";
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       <AuthNavigator />
     </NavigationContainer>
   );
