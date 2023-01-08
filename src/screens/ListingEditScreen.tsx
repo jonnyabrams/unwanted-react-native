@@ -1,13 +1,11 @@
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
-import * as Location from "expo-location";
 
 import { Form, FormField, FormPicker, SubmitButton } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import IconPickerItem from "../components/IconPickerItem";
 import Screen from "../components/Screen";
-import { useEffect, useState } from "react";
-import { LocationObject } from "expo-location";
+import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -34,30 +32,7 @@ const categories = [
 ];
 
 const ListingEditScreen = () => {
-  const [location, setLocation] = useState<LocationObject | null>(null);
-  const [errorMsg, setErrorMsg] = useState("");
-
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
-      }
-
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    })();
-  }, []);
-
-  let text = "Waiting..";
-  if (errorMsg) {
-    text = errorMsg;
-  } else if (location) {
-    text = JSON.stringify(location);
-  }
-
-  console.log(text)
+  const location = useLocation();
 
   return (
     <Screen style={styles.container}>
