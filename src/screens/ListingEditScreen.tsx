@@ -36,8 +36,12 @@ const ListingEditScreen = () => {
   const location = useLocation();
 
   const handleSubmit = async (listing: any) => {
-    const result = await listingsApi.addListing({ ...listing, location },
-      (progress: any) => console.log(progress));
+    const result = await listingsApi.addListing(
+      // took location out of object with ...listing as was causing error ("location" must be of type object) - find out why!
+      { ...listing },
+      (progress: any) => console.log(progress)
+    );
+
     if (!result.ok) return alert("Could not add listing");
 
     alert("Success");
