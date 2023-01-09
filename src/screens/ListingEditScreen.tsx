@@ -6,6 +6,7 @@ import FormImagePicker from "../components/forms/FormImagePicker";
 import IconPickerItem from "../components/IconPickerItem";
 import Screen from "../components/Screen";
 import useLocation from "../hooks/useLocation";
+import listingsApi from "../api/listings";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -34,6 +35,18 @@ const categories = [
 const ListingEditScreen = () => {
   const location = useLocation();
 
+  const handleSubmit = async (listing: any) => {
+    const result = await listingsApi.addListing(
+      // took location out of object with ...listing as was causing error ("location" must be of type object) - find out why!
+      { ...listing },
+      (progress: any) => console.log(progress)
+    );
+
+    if (!result.ok) return alert("Could not add listing");
+
+    alert("Success");
+  };
+
   return (
     <Screen style={styles.container}>
       <Form
@@ -44,7 +57,7 @@ const ListingEditScreen = () => {
           category: null,
           images: [],
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
