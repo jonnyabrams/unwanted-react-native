@@ -6,6 +6,8 @@ import Card from "../components/Card";
 import Screen from "../components/Screen";
 import colors from "../constants/colors";
 import listingsApi from "../api/listings";
+import AppText from "../components/Text";
+import Button from "../components/Button";
 
 interface IProps {
   navigation: NavigationProp<ParamListBase>;
@@ -13,6 +15,7 @@ interface IProps {
 
 const ListingsScreen = ({ navigation }: IProps) => {
   const [listings, setListings] = useState<any>([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     loadListings();
@@ -20,12 +23,21 @@ const ListingsScreen = ({ navigation }: IProps) => {
 
   const loadListings = async () => {
     const response = await listingsApi.getListings();
-    console.log(response.data)
-    setListings(response.data)
+    // inline return setError(true) same as doing { setError(true) --new line-- return;}
+    if (!response.ok) return setError(true);
+    // set error to false in case it had previously been set to true
+    setError(false);
+    setListings(response.data);
   };
 
   return (
     <Screen style={styles.screen}>
+      {error && (
+        <>
+          <AppText>Couldn't retrieve the listings.</AppText>
+          <Button title="Retry" onPress={loadListings} />
+        </>
+      )}
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
