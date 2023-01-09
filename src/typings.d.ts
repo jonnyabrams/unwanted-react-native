@@ -1,9 +1,4 @@
-type MessageType = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-};
+import { ImageSourcePropType } from "react-native";
 
 type CategoryType = {
   label: string;
@@ -23,9 +18,26 @@ type InitialFormValuesType = {
   images?: string[];
 };
 
+type ListingType = {
+  id: number;
+  title: string;
+  description?: string;
+  price: number;
+  categoryId: number;
+  location: LocationType;
+  images?: [{ thumbnailUrl: string, url: string }];
+};
+
 type LocationType = {
   longitude: number;
   latitude: number;
+};
+
+type MessageType = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
 };
 
 type TextContentTypeType =

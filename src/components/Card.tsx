@@ -12,15 +12,15 @@ import AppText from "./Text";
 interface IProps {
   title: string;
   subtitle: string;
-  image: ImageSourcePropType;
+  imageUrl: any;
   onPress?: () => void;
 }
 
-const Card = ({ title, subtitle, image, onPress }: IProps) => {
+const Card = ({ title, subtitle, imageUrl, onPress }: IProps) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
-        <Image style={styles.image} source={image} />
+        <Image style={styles.image} source={{uri: imageUrl}} />
         <View style={styles.detailsContainer}>
           <AppText style={styles.title}>{title}</AppText>
           <AppText style={styles.subtitle}>{subtitle}</AppText>
