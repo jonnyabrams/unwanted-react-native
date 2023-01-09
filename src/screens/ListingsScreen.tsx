@@ -1,30 +1,29 @@
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import { FlatList, StyleSheet } from "react-native";
+import { useEffect, useState } from "react";
 
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 import colors from "../constants/colors";
+import listingsApi from "../api/listings";
 
 interface IProps {
-  navigation: NavigationProp<ParamListBase>
+  navigation: NavigationProp<ParamListBase>;
 }
 
-const listings = [
-  {
-    id: 1,
-    title: "Blue Jacket for Sale",
-    price: 79,
-    image: require("../assets/blue_jacket.webp"),
-  },
-  {
-    id: 2,
-    title: "Red Jacket for Sale",
-    price: 72,
-    image: require("../assets/red_jacket.jpeg"),
-  },
-];
-
 const ListingsScreen = ({ navigation }: IProps) => {
+  const [listings, setListings] = useState<any>([]);
+
+  useEffect(() => {
+    loadListings();
+  }, []);
+
+  const loadListings = async () => {
+    const response = await listingsApi.getListings();
+    console.log(response.data)
+    setListings(response.data)
+  };
+
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -34,7 +33,7 @@ const ListingsScreen = ({ navigation }: IProps) => {
           <Card
             title={item.title}
             subtitle={`£${item.price}`}
-            image={item.image}
+            imageUrl={item.images[0].url}
             onPress={() => navigation.navigate("ListingDetails", item)}
           />
         )}
