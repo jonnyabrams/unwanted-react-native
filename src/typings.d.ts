@@ -24,7 +24,7 @@ type ListingType = {
   description?: string;
   price: number;
   categoryId: number;
-  location: LocationType;
+  location?: LocationType;
   images?: [{ thumbnailUrl: string, url: string }];
 };
 
