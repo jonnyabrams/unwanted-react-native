@@ -1,5 +1,5 @@
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
-import { FlatList, StyleSheet } from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 
 import Card from "../components/Card";
@@ -16,15 +16,20 @@ interface IProps {
 const ListingsScreen = ({ navigation }: IProps) => {
   const [listings, setListings] = useState<any>([]);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     loadListings();
   }, []);
 
   const loadListings = async () => {
+    setLoading(true);
     const response = await listingsApi.getListings();
+    setLoading(false);
+
     // inline return setError(true) same as doing { setError(true) --new line-- return;}
     if (!response.ok) return setError(true);
+
     // set error to false in case it had previously been set to true
     setError(false);
     setListings(response.data);
@@ -38,6 +43,7 @@ const ListingsScreen = ({ navigation }: IProps) => {
           <Button title="Retry" onPress={loadListings} />
         </>
       )}
+      <ActivityIndicator animating={true} size="large" />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
