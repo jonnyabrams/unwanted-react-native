@@ -36,7 +36,8 @@ const ListingEditScreen = () => {
   const location = useLocation();
 
   const handleSubmit = async (listing: any) => {
-    const result = await listingsApi.addListing({ ...listing, location });
+    const result = await listingsApi.addListing({ ...listing, location },
+      (progress: any) => console.log(progress));
     if (!result.ok) return alert("Could not add listing");
 
     alert("Success");
