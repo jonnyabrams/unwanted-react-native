@@ -13,6 +13,7 @@ import AppText from "./Text";
 import { useState } from "react";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
+import { CategoryType } from "../typings";
 
 interface IProps {
   items: CategoryType[];

@@ -1,6 +1,7 @@
 import * as Location from "expo-location";
 import { LocationObject } from "expo-location";
 import { useEffect, useState } from "react";
+import { LocationType } from "../typings";
 
 const useLocation = () => {
   const [location, setLocation] = useState<LocationType | null>(null);

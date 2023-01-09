@@ -1,5 +1,6 @@
 import { StyleSheet, TouchableOpacity } from "react-native";
 
+import { CategoryType } from "../typings";
 import AppText from "./Text";
 
 interface IProps {

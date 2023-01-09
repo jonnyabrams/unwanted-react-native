@@ -1,6 +1,7 @@
 import { FormikErrors, useFormikContext } from "formik";
 import { StyleSheet } from "react-native";
 
+import { CategoryType } from "../../typings";
 import Picker from "../Picker";
 import ErrorMessage from "./ErrorMessage";
 

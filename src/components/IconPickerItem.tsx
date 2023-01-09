@@ -2,6 +2,7 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 import AppText from "./Text";
 
 import Icon from "./Icon";
+import { CategoryType } from "../typings";
 
 interface IProps {
   item: CategoryType;

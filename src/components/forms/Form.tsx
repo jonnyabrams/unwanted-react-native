@@ -1,5 +1,7 @@
 import { Formik } from "formik";
 
+import { InitialFormValuesType } from "../../typings";
+
 interface IProps {
   initialValues: InitialFormValuesType;
   onSubmit: (values: any) => void;

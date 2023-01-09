@@ -6,6 +6,7 @@ import ListItem from "../components/ListItem";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
 import ListItemSeparator from "../components/ListItemSeparator";
 import Screen from "../components/Screen";
+import { MessageType } from "../typings";
 
 const initialMessages = [
   {
