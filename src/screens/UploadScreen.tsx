@@ -1,5 +1,7 @@
 import { Modal, StyleSheet, View } from "react-native";
-import AppText from "../components/Text";
+import * as Progress from 'react-native-progress';
+
+import colors from "../constants/colors";
 
 interface IProps {
   progress: number;
@@ -10,7 +12,7 @@ const UploadScreen = ({progress = 0, visible = false}: IProps) => {
   return (
     <Modal visible={visible}>
       <View style={styles.container}>
-        <AppText>{`${progress * 100}%`}</AppText>
+        <Progress.Bar progress={progress} color={colors.primary} width={200} />
       </View>
     </Modal>
   );

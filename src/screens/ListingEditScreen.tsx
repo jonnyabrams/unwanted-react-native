@@ -40,6 +40,8 @@ const ListingEditScreen = () => {
   const [progress, setProgress] = useState(0);
 
   const handleSubmit = async (listing: any) => {
+    // set progress to 0 to stop weird behaviour where you click it again and it goes back and forth
+    setProgress(0)
     setUploadVisible(true);
     const result = await listingsApi.addListing(
       // took location out of object with ...listing as was causing error ("location" must be of type object) - find out why!
