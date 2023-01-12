@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
+import { useState } from "react";
 
 import { Form, FormField, FormPicker, SubmitButton } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
@@ -7,6 +8,7 @@ import IconPickerItem from "../components/IconPickerItem";
 import Screen from "../components/Screen";
 import useLocation from "../hooks/useLocation";
 import listingsApi from "../api/listings";
+import UploadScreen from "./UploadScreen";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -34,13 +36,17 @@ const categories = [
 
 const ListingEditScreen = () => {
   const location = useLocation();
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const handleSubmit = async (listing: any) => {
+    setUploadVisible(true);
     const result = await listingsApi.addListing(
       // took location out of object with ...listing as was causing error ("location" must be of type object) - find out why!
       { ...listing },
-      (progress: any) => console.log(progress)
+      (progress: number) => setProgress(progress)
     );
+    setUploadVisible(false);
 
     if (!result.ok) return alert("Could not add listing");
 
@@ -49,6 +55,7 @@ const ListingEditScreen = () => {
 
   return (
     <Screen style={styles.container}>
+      <UploadScreen progress={progress} visible={uploadVisible} />
       <Form
         initialValues={{
           title: "",
