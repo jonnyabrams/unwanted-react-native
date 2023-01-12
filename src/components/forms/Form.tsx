@@ -4,7 +4,7 @@ import { InitialFormValuesType } from "../../typings";
 
 interface IProps {
   initialValues: InitialFormValuesType;
-  onSubmit: (values: any) => void;
+  onSubmit: (listing: any, { resetForm }: { resetForm: any }) => Promise<void>;
   validationSchema: any;
   children: React.ReactNode;
 }

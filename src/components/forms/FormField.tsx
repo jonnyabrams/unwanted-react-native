@@ -26,13 +26,16 @@ const FormField = ({
   autoCorrect = false,
   ...otherProps
 }: IProps) => {
-  const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
+  const { setFieldTouched, setFieldValue, errors, touched, values } =
+    useFormikContext();
 
   return (
     <>
       <AppTextInput
         onBlur={() => setFieldTouched(name)}
-        onChangeText={handleChange(name)}
+        onChangeText={(text: string | number) => setFieldValue(name, text)}
+        // @ts-ignore
+        value={values[name]}
         autoCapitalize={autoCapitalize}
         autoCorrect={autoCorrect}
         width={width}

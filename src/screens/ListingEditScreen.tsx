@@ -39,7 +39,10 @@ const ListingEditScreen = () => {
   const [uploadVisible, setUploadVisible] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const handleSubmit = async (listing: any) => {
+  const handleSubmit = async (
+    listing: any,
+    { resetForm }: { resetForm: any }
+  ) => {
     // set progress to 0 to stop weird behaviour where you click it again and it goes back and forth
     setProgress(0);
     setUploadVisible(true);
@@ -53,11 +56,17 @@ const ListingEditScreen = () => {
       setUploadVisible(false);
       return alert("Could not add listing");
     }
+
+    resetForm();
   };
 
   return (
     <Screen style={styles.container}>
-      <UploadScreen onDone={() => setUploadVisible(false)} progress={progress} visible={uploadVisible} />
+      <UploadScreen
+        onDone={() => setUploadVisible(false)}
+        progress={progress}
+        visible={uploadVisible}
+      />
       <Form
         initialValues={{
           title: "",
