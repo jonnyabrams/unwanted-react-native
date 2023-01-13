@@ -1,6 +1,6 @@
 import { Image, StyleSheet } from "react-native";
 import * as Yup from "yup";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import jwtDecode from "jwt-decode";
 
 import Screen from "../components/Screen";
@@ -11,6 +11,8 @@ import {
   Form,
 } from "../components/forms";
 import authApi from "../api/auth";
+import AuthContext from "../auth/context";
+import { UserType } from "../typings";
 
 type LoginInfoType = {
   email: string;
@@ -23,6 +25,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const LoginScreen = () => {
+  const authContext = useContext(AuthContext);
   const [loginFailed, setLoginFailed] = useState(false);
 
   const handleSubmit = async ({ email, password }: LoginInfoType) => {
@@ -30,8 +33,8 @@ const LoginScreen = () => {
     // have to put return so rest of func is not executed
     if (!result.ok) return setLoginFailed(true);
     setLoginFailed(false);
-    const user = jwtDecode(result.data)
-    console.log(user);
+    const user: UserType = jwtDecode(result.data);
+    authContext?.setUser(user);
   };
 
   return (

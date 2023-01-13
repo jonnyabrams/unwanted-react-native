@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
+import { useState } from "react";
 
 import AppPicker from "./src/components/Picker";
 import AppTextInput from "./src/components/TextInput";
@@ -22,12 +22,18 @@ import ImageInputList from "./src/components/ImageInputList";
 import AuthNavigator from "./src/navigation/AuthNavigator";
 import navigationTheme from "./src/navigation/navigationTheme";
 import AppNavigator from "./src/navigation/AppNavigator";
+import AuthContext from "./src/auth/context";
+import { UserType } from "./src/typings";
 
 const App = () => {
+  const [user, setUser] = useState<UserType | null>(null);
+
   return (
-    <NavigationContainer theme={navigationTheme}>
-      <AuthNavigator />
-    </NavigationContainer>
+    <AuthContext.Provider value={{ user, setUser }}>
+      <NavigationContainer theme={navigationTheme}>
+        <AuthNavigator />
+      </NavigationContainer>
+    </AuthContext.Provider>
   );
 };
 
