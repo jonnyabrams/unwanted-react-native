@@ -13,8 +13,8 @@ import colors from "../constants/colors";
 import AppText from "./Text";
 
 interface IProps {
-  title: string;
-  subtitle?: string;
+  title: string | undefined;
+  subtitle?: string | undefined;
   IconComponent?: JSX.Element;
   image?: ImageSourcePropType;
   onPress?: () => void;

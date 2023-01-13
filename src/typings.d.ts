@@ -44,6 +44,7 @@ type UserType = {
   id: number;
   email: string;
   name: string;
+  iat?: number;
 };
 
 type CurrentUserContextType = {
