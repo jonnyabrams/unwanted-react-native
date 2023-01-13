@@ -25,7 +25,7 @@ type ListingType = {
   price: number;
   categoryId: number;
   location: LocationType;
-  images?: [{ thumbnailUrl: string, url: string }];
+  images?: [{ thumbnailUrl: string; url: string }];
 };
 
 type LocationType = {
@@ -38,6 +38,18 @@ type MessageType = {
   title: string;
   description: string;
   image: string;
+};
+
+type UserType = {
+  id: number;
+  email: string;
+  name: string;
+  iat?: number;
+};
+
+type CurrentUserContextType = {
+  user: UserType | null;
+  setUser: React.Dispatch<React.SetStateAction<UserType | null>>;
 };
 
 type TextContentTypeType =

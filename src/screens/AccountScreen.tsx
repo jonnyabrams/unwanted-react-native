@@ -1,7 +1,8 @@
-import { NavigationProp, ParamListBase } from "@react-navigation/native";
+import { useContext } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
-import Icon from "../components/Icon";
 
+import AuthContext from "../auth/context";
+import Icon from "../components/Icon";
 import ListItem from "../components/ListItem";
 import ListItemSeparator from "../components/ListItemSeparator";
 import Screen from "../components/Screen";
@@ -25,17 +26,24 @@ const menuItems = [
       name: "email",
       backgroundColor: colors.secondary,
     },
-    targetScreen: "Messages"
+    targetScreen: "Messages",
   },
 ];
 
-const AccountScreen = ({navigation}: IProps) => {
+const AccountScreen = ({ navigation }: IProps) => {
+  // have to check context is not null to fix typescript error
+  const authContext = useContext(AuthContext);
+  if (!authContext) return null;
+  const { user, setUser } = authContext;
+
+  console.log(user);
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title="Jonny Abrams"
-          subtitle="jonny@jonny.com"
+          title={user?.name}
+          subtitle={user?.email}
           image={require("../assets/me.jpeg")}
         />
       </View>
@@ -61,6 +69,7 @@ const AccountScreen = ({navigation}: IProps) => {
       <ListItem
         title="Log Out"
         IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+        onPress={() => setUser(null)}
       />
     </Screen>
   );
