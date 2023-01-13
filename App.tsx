@@ -26,7 +26,7 @@ import AppNavigator from "./src/navigation/AppNavigator";
 const App = () => {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
+      <AuthNavigator />
     </NavigationContainer>
   );
 };
