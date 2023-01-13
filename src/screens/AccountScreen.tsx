@@ -34,7 +34,7 @@ const AccountScreen = ({ navigation }: IProps) => {
   // have to check context is not null to fix typescript error
   const authContext = useContext(AuthContext);
   if (!authContext) return null;
-  const { user } = authContext;
+  const { user, setUser } = authContext;
 
   console.log(user);
 
@@ -69,6 +69,7 @@ const AccountScreen = ({ navigation }: IProps) => {
       <ListItem
         title="Log Out"
         IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+        onPress={() => setUser(null)}
       />
     </Screen>
   );
