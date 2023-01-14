@@ -1,8 +1,6 @@
-import { useContext } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
-import AuthContext from "../auth/context";
-import authStorage from "../auth/storage";
+import useAuth from "../auth/useAuth";
 import Icon from "../components/Icon";
 import ListItem from "../components/ListItem";
 import ListItemSeparator from "../components/ListItemSeparator";
@@ -32,15 +30,10 @@ const menuItems = [
 ];
 
 const AccountScreen = ({ navigation }: IProps) => {
-  // have to check context is not null to fix typescript error
-  const authContext = useContext(AuthContext);
-  if (!authContext) return null;
-  const { user, setUser } = authContext;
-
-  const handleLogout = () => {
-    setUser(null);
-    authStorage.removeToken();
-  };
+  // have to check for no auth to appease typescript
+  const auth = useAuth();
+  if (!auth) return;
+  const { user, logOut } = auth;
 
   return (
     <Screen style={styles.screen}>
@@ -73,7 +66,7 @@ const AccountScreen = ({ navigation }: IProps) => {
       <ListItem
         title="Log Out"
         IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
-        onPress={handleLogout}
+        onPress={() => logOut()}
       />
     </Screen>
   );
