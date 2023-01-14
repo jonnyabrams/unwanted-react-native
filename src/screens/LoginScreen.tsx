@@ -24,8 +24,6 @@ const validationSchema = Yup.object().shape({
 
 const LoginScreen = () => {
   const auth = useAuth();
-  if (!auth) return;
-  const { logIn } = auth;
 
   const [loginFailed, setLoginFailed] = useState(false);
 
@@ -34,7 +32,7 @@ const LoginScreen = () => {
     // have to put return so rest of func is not executed
     if (!result.ok) return setLoginFailed(true);
     setLoginFailed(false);
-    logIn(result.data)
+    auth?.logIn(result.data)
   };
 
   return (

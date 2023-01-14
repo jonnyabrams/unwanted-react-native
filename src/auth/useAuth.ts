@@ -6,6 +6,8 @@ import authStorage from "../auth/storage";
 import { UserType } from "../typings";
 
 const useAuth = () => {
+  // have to check for no authContext to appease typescript
+  // can do in one line by doing eg. authContext?.user etc - have done this elsewhere
   const authContext = useContext(AuthContext);
   if (!authContext) return null;
   const { user, setUser } = authContext;

@@ -30,17 +30,14 @@ const menuItems = [
 ];
 
 const AccountScreen = ({ navigation }: IProps) => {
-  // have to check for no auth to appease typescript
   const auth = useAuth();
-  if (!auth) return;
-  const { user, logOut } = auth;
 
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title={user?.name}
-          subtitle={user?.email}
+          title={auth?.user?.name}
+          subtitle={auth?.user?.email}
           image={require("../assets/me.jpeg")}
         />
       </View>
@@ -66,7 +63,7 @@ const AccountScreen = ({ navigation }: IProps) => {
       <ListItem
         title="Log Out"
         IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
-        onPress={() => logOut()}
+        onPress={() => auth?.logOut()}
       />
     </Screen>
   );
