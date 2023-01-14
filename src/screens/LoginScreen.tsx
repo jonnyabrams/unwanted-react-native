@@ -12,6 +12,7 @@ import {
 } from "../components/forms";
 import authApi from "../api/auth";
 import AuthContext from "../auth/context";
+import authStorage from "../auth/storage";
 import { UserType } from "../typings";
 
 type LoginInfoType = {
@@ -35,6 +36,7 @@ const LoginScreen = () => {
     setLoginFailed(false);
     const user: UserType = jwtDecode(result.data);
     authContext?.setUser(user);
+    authStorage.setToken(result.data);
   };
 
   return (

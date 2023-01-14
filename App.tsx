@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import jwtDecode from "jwt-decode";
 
 import AppPicker from "./src/components/Picker";
 import AppTextInput from "./src/components/TextInput";
@@ -24,9 +25,20 @@ import navigationTheme from "./src/navigation/navigationTheme";
 import AppNavigator from "./src/navigation/AppNavigator";
 import AuthContext from "./src/auth/context";
 import { UserType } from "./src/typings";
+import authStorage from "./src/auth/storage";
 
 const App = () => {
   const [user, setUser] = useState<UserType | null>(null);
+
+  useEffect(() => {
+    const restoreToken = async () => {
+      const token = await authStorage.getToken();
+      if (!token) return;
+      setUser(jwtDecode(token));
+    };
+
+    restoreToken();
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>
