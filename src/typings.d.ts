@@ -40,6 +40,12 @@ type MessageType = {
   image: string;
 };
 
+type RegisterInfoType = {
+  email: string;
+  name: string;
+  password: string;
+}
+
 type UserType = {
   id: number;
   email: string;
